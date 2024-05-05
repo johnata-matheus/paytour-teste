@@ -63,7 +63,7 @@
 
         <div>
           <label for="observacoes">Observações</label>
-          <input type="text" name="observacoes" placeholder="Digite suas observações (opcional)" required>
+          <input type="text" name="observacoes" placeholder="Digite suas observações (opcional)">
         </div>
 
         <div>

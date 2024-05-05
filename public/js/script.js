@@ -1,11 +1,12 @@
 function alterText(){
-  const btn = document.querySelector('.btn');
+  const form = document.querySelector('.form');
 
   function alterHtml(event){
+    const btn = document.querySelector('.btn');
     btn.innerHTML = "Enviando...";
   }
 
-  btn.addEventListener("click", alterHtml)
+  form.addEventListener("submit", alterHtml)
 }
 
 function formatTell(){
