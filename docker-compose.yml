@@ -1,0 +1,47 @@
+version: "3.8"
+
+services:
+  app:
+    container_name: app-paytour
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./:/var/www/
+    depends_on:
+      - database
+    networks:
+      - paytour
+
+  nginx:
+    image: nginx:alpine
+    container_name: nginx-paytour
+    ports:
+      - "8989:80"
+    volumes:
+      - ./:/var/www
+      - ./default.conf:/etc/nginx/conf.d/default.conf
+    networks:
+      - paytour
+    depends_on:
+      - app
+          
+  database:
+    container_name: mysql-paytour
+    image: mariadb:latest
+    environment:
+      MYSQL_DATABASE: paytour
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USERNAME: root
+    ports:
+      - "3307:3306"
+    volumes:
+      - mysql_paytour:/var/lib/mysql
+    networks:
+      - paytour
+
+volumes:
+  mysql_paytour:
+
+networks:
+  paytour:
