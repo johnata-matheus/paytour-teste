@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreUserFormRequest;
 use App\Mail\Contact;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -14,10 +15,14 @@ class UserController extends Controller
         return view('form');
     }
 
-    public function store(Request $request)
+    public function store(StoreUserFormRequest $request)
     {
         $data = $request->all();
 
+        $removeFormatting = str_replace(['(', ')', ' '], '', $request->telefone);
+    
+        $data['telefone'] = $removeFormatting;
+    
         $user = User::create($data);
 
         Mail::to($request->email)->send(new Contact([
@@ -31,6 +36,6 @@ class UserController extends Controller
             'data_envio' => $request->input('data_envio')
         ]));
 
-        return redirect('/user');
+        return back();
     }
 }
