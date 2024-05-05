@@ -1,0 +1,115 @@
+body{
+  margin: 0px;
+  background-color: #fafafa;
+}
+
+h1,
+h2,
+h3,
+ul,
+p,
+a {
+  margin: 0px;
+  padding: 0px;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  display: inline-block;
+}
+
+ul{
+  list-style: none;
+}
+
+.container {
+  display: grid;
+  padding: 0px 20px;
+  margin: 60px auto;
+  max-width: 1200px;
+  justify-content: center;
+  align-content: center;
+}
+
+.content{
+  background-color: #ffffff;
+  padding: 40px 60px;
+  border-radius: 7px;
+  box-shadow: 0px 1px 2px rgba(0,0,0,0.15);
+}
+
+.form{
+  display: grid;
+  gap: 20px;
+}
+
+.form div{
+  display: grid;
+}
+
+.grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+label{
+  font: 600 1rem 'Poppins';
+  margin-bottom: 4px;
+}
+
+input[type="datetime-local"],
+input[type="text"],
+input[type="email"],
+textarea,
+select{
+  font: 400 1rem/1.5 'Roboto', sans-serif;
+  padding: 8px;
+  background: #fafafa;
+  color: #484848;
+  border: 1px solid #dbdbdb;
+  border-radius: 4px;
+  width: 100%;
+  box-sizing: border-box;
+  resize: none;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  background: #ffffff;
+  border-color: #113cd7;
+  box-shadow: 0px 0px 2px #6FCBFF;
+}
+
+.btn{
+  padding: 12px 24px;
+  place-self: start;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 7px;
+  box-shadow: 0px 1px 2px rgba(0,0,0,0.15);
+  background-color: #113cd7;
+  font: 600 1rem 'Poppins';
+  color: #ffffff;
+}
+
+.errors{
+  display: grid;
+  margin-bottom: 20px;
+  gap: 4px;
+}
+
+.errors li{
+  font: 400 1rem 'Roboto';
+  color: red;
+}
+
+
+
+@media(max-width: 600px){
+  .grid{
+    grid-template-columns: none;
+  }
+}
