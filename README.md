@@ -19,16 +19,61 @@ para rodar esse projeto você precisará apenas do Docker.
 git clone https://github.com/johnata-matheus/paytour-teste.git
 ```
 
-2. Na pasta do projeto, start a aplicação:
+## Configuração
+
+1. Crie um arquivo .env e dentro dele cole todo o arquivo do env.example.
+
+2. Mude as variaveis de acesso ao banco:
+
+```
+DB_CONNECTION=mysql
+DB_HOST=database
+DB_PORT=3306
+DB_DATABASE=paytour
+DB_USERNAME=root
+DB_PASSWORD=root
+```
+3. Coloque suas informações do smtp do gmail:
+```
+MAIL_MAILER=smtp
+MAIL_HOST=smtp.gmail.com
+MAIL_PORT=587
+MAIL_USERNAME=seu username
+MAIL_PASSWORD=sua senha
+MAIL_ENCRYPTION=tls
+MAIL_FROM_ADDRESS="hello@example.com"
+MAIL_FROM_NAME="${APP_NAME}"
+```
+## Subir a aplicação
+
+1. Na pasta do projeto, start a aplicação:
 
 ```
 docker-compose up -d
 ```
 
-3. Execute as migrations:
+2. Ajuste a permissão da pasta store:
+
+```
+docker exec app-paytour chmod -R 777 storage
+```
+
+3. Instale as depedências:
+
+```
+docker exec app-paytour composer install
+```
+
+5. Execute as migrations:
 
 ```
 docker exec app-paytour php artisan migrate
+```
+
+6. Gere a key:
+   
+```
+docker exec app-paytour php artisan key:generate
 ```
 
 ## Endpoint 
@@ -38,3 +83,7 @@ docker exec app-paytour php artisan migrate
 ```
 http://localhost:8989/user
 ```
+
+## Aplicação 
+
+![image](https://github.com/johnata-matheus/paytour-teste/assets/105123252/46251dc0-7330-44a2-b595-046f4662043d)
