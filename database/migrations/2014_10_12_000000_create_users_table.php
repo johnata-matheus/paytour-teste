@@ -15,14 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('nome');
             $table->string('email');
-            $table->binary('arquivo');
             $table->string('telefone');
             $table->text('cargo_desejado');
-            $table->string('escolaridade');
-            $table->text('observacoes')->nullable();
-            $table->dateTime('data_envio');
-            $table->timestamp("created_at");
-            $table->timestamp("updated_at");
+            $table->string('observacoes')->nullable();
         });
     }
 
