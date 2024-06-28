@@ -22,10 +22,7 @@ class User extends Authenticatable
         'email',
         'telefone',
         'cargo_desejado',
-        'escolaridade',
-        'data_envio',
-        'observacoes',
-        'arquivo'
+        'observacoes'
     ];
 
     /**
@@ -47,4 +44,14 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public $timestamps = false;
+
+    public function escolaridade(){
+        return $this->hasOne(Escolaridade::class);
+    }
+
+    public function curriculos(){
+        return $this->hasMany(Curriculo::class);
+    }
 }
