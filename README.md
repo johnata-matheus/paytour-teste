@@ -8,8 +8,13 @@
 
 O projeto se trata de um formulário para cadastro e envio de currículos com os seguintes campos: Nome, e-mail, telefone, Cargo Desejado (Campo texto livre), Escolaridade (Campo select), observações, arquivo e data e hora do envio. Dessa forma, todos os campos do formulário foram validados, seguindo as observações.
 
+## Diagrama ER
+
+![image](https://github.com/johnata-matheus/paytour-teste/assets/105123252/1c777e0c-0fe4-4f6c-b35e-d6db3f148a9c)
+
+
 ## Requisitos
-para rodar esse projeto você precisará apenas do Docker.
+Para rodar esse projeto você precisará apenas do Docker.
 
 ## Instalação
 
@@ -21,7 +26,7 @@ git clone https://github.com/johnata-matheus/paytour-teste.git
 
 ## Configuração
 
-1. Crie um arquivo .env e dentro dele cole todo o arquivo do env.example.
+1. Crie um arquivo .env e dentro dele cole todo o arquivo do env.example
 
 2. Mude as variaveis de acesso ao banco:
 
@@ -78,10 +83,10 @@ docker exec app-paytour php artisan key:generate
 
 ## Endpoint 
 
-1. O nginx está rodando na porta :8989
+1. O nginx está rodando na porta :9090
    
 ```
-http://localhost:8989/user
+http://localhost:9090/user
 ```
 
 ## Aplicação 
